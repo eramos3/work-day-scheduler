@@ -21,6 +21,6 @@ git clone git@github.com:eramos3/work-day-scheduler.git
 ```
 <!-- [working deployed link recording]() -->
 
-<!-- ![Work Day Scheduler Screenshot](./assets/images/scheduler.png) -->
+![Work Day Scheduler Screenshot](./assets/images/scheduler.png)
 
-<!-- [Work Day Scheduler page](https://eramos3.github.io/codequiz/) -->
+[Work Day Scheduler page](https://eramos3.github.io/work-day-scheduler/)
