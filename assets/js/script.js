@@ -33,6 +33,7 @@ $(document).ready(function () {
     })
 })
 
+// selects each time in object and makes a row for it
 $.each(hour, function (index, item) {
     // create row for each hour block  
     var row = $("<div>").addClass("row time-block");
