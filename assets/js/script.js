@@ -1,14 +1,14 @@
-// object to store work hours 9am-5pm
+// object to store work hours 9am-5pm/ holds empty text and value to compare to futrue/present/past 
 var hour = [
-    { time: "9", text: "",val:9 },
-    { time: "10", text: "" ,val:10 },
-    { time: "11", text: "" ,val:11 },
-    { time: "12", text: "" ,val:12 },
-    { time: "13", text: "" ,val:13},
-    { time: "14", text: "" ,val:14 },
-    { time: "15", text: "" ,val:15},
-    { time: "16", text: "" ,val:16},
-    { time: "17", text: "" ,val:17},
+    { time: "9 am", text: "",val:9 },
+    { time: "10 am", text: "" ,val:10 },
+    { time: "11 am", text: "" ,val:11 },
+    { time: "12 pm", text: "" ,val:12 },
+    { time: "1 pm", text: "" ,val:13},
+    { time: "2 pm", text: "" ,val:14 },
+    { time: "3 pm", text: "" ,val:15},
+    { time: "4 pm", text: "" ,val:16},
+    { time: "5 pm", text: "" ,val:17},
 ];
 // saves date to this variable
 var date = moment().format('MMMM Do YYYY');
@@ -18,31 +18,20 @@ $("#currentDay").text(date);
 var currentT = moment().format('H');
 
 
-// load text 
-
+// load saved user text 
 $(document).ready(function () {
     $("textarea").each(function () {
         var userText = $(this)
         for (var i = 0; i<window.localStorage.length; i++){
             var keyName = window.localStorage.key([i])
             var time = $(this).siblings("div").attr("id");
-
-            // console.log(keyName)
+            // makes sure key and time matches to get text value from local storage
             if (keyName == time ){
-                userText.val(localStorage.getItem(keyName));
-    
-                // userText = localStorage.getItem(keyName)
-                console.log(keyName)
+                userText.val(JSON.parse(localStorage.getItem(keyName)));
             }
-
         }
- 
-        // console.log(time)
-        // userText = localStorage.getItem(keyName)
-       
     })
 })
-
 
 $.each(hour, function (index, item) {
     // create row for each hour block  
@@ -65,17 +54,11 @@ $.each(hour, function (index, item) {
     } else {
         taskText.addClass("past");
     }
-
-
 });
-
-for (i = 0; i < hour.length; i++) {
-    var rowValue = hour[i].time;
-}
 
 // make button listen for click event and run function to save text in local storage
 $(".saveBtn").each(function (index, item) {
-
+    // selects button that was clicked and saves that user text to local storage
     $(this).on("click", function () {
         var userText = $(this).siblings("textarea").val();
         var time = $(this).siblings("div").attr("id");
@@ -83,6 +66,4 @@ $(".saveBtn").each(function (index, item) {
         // save to local storage
         localStorage.setItem(time, JSON.stringify(userText));
     })
-
-
 })
