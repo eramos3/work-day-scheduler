@@ -19,6 +19,13 @@ THEN the saved events persist
 ```
 git clone git@github.com:eramos3/work-day-scheduler.git
 ```
+## Built With
+* HTML
+* CSS
+* jQuery
+* Moment
+* Bootstrap
+
 [working deployed link recording](https://drive.google.com/file/d/1EOW7LJnmPg-iMrf8xIdB7Y7jmGIC3Pvs/view)
 
 ![Work Day Scheduler Screenshot](./assets/images/scheduler.png)
